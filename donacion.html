@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Donar Ahora</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 50px;
+      color: #004d40;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .donation-box {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: inline-block;
+      padding: 30px 40px;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      border: 1px solid #b2dfdb;
+      border-radius: 5px;
+      font-size: 1em;
+      width: 150px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #004d40;
+    }
+
+    #mensaje {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contribuye con tu donación</h1>
+  <p>Tu ayuda es fundamental para cambiar vidas.</p>
+
+  <div class="donation-box">
+    <label for="monto">Ingresa el monto:</label>
+    <input type="number" id="monto" min="1" placeholder="Ej: 5000">
+    <button onclick="realizarDonacion()">Donar</button>
+    <p id="mensaje"></p>
+  </div>
+
+  <script>
+    function realizarDonacion() {
+      const monto = document.getElementById("monto").value;
+      const mensaje = document.getElementById("mensaje");
+
+      if (monto && parseFloat(monto) > 0) {
+        mensaje.textContent = `¡Gracias por tu generosa donación de $${parseFloat(monto).toLocaleString()}!`;
+        mensaje.style.color = "#388e3c";
+      } else {
+        mensaje.textContent = "Por favor, ingresa un monto válido.";
+        mensaje.style.color = "#d32f2f";
+      }
+    }
+  </script>
+</body>
+</html>
